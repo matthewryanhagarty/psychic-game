@@ -7,10 +7,11 @@ var guessedLetters = [];
 
 
    // Create variables that hold references to the places in the HTML where we want to display things.
-document.getElementById("wins-text").innerHTML = wins;
-document.getElementById("loses-text").innerHTML = loses;
-document.getElementById("guesses-left-text").innerHTML = guessesLeft;
-document.getElementById("guesses-so-far-text").innerHTML = guessSoFar;
+var winText = document.getElementById("wins-text");
+winsText.textContent = wins;
+// document.getElementById("loses-text").innerHTML = loses;
+// document.getElementById("guesses-left-text").innerHTML = guessesLeft;
+// document.getElementById("guesses-so-far-text").innerHTML = guessSoFar;
 
 
 document.onkeyup = function(event) {
@@ -29,6 +30,7 @@ document.onkeyup = function(event) {
     } 
     
     if (guessesLeft === 0);
+        loses++;
         function reset(){
             guessesLeft = 9;
             guessedLetters = [];
@@ -46,6 +48,7 @@ document.onkeyup = function(event) {
 
     //     }
     //         if ((guessesLeft === 0)) {
+                    // loses++;
     //                 function reset(){
     //                     guessesLeft = 9;
     //                     guessedLetters = [];
@@ -58,7 +61,8 @@ document.onkeyup = function(event) {
 //         wins++;
 
 //     } else if
-//         (guessesLeft === 0);
+//         (guessesLeft === 0); {
+        // loses++;
 //         function reset(){
 //             guessesLeft = 9;
 //             guessedLetters = [];
