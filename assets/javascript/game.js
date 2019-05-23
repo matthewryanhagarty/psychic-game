@@ -10,38 +10,36 @@ function reset(){
     guessedLetters = [];
 }
 
-   // Create variables that hold references to the places in the HTML where we want to display things.
 var winsText = document.getElementById("wins-text");
 var lossesText = document.getElementById("losses-text");
 var guessesLeftText = document.getElementById("guesses-left-text");
 var guessesSoFarText = document.getElementById("guesses-so-far-text");
 
-winsText.textContent = wins;
-lossesText.textContent = losses;
-guessesLeftText.textContent = guessesLeft;
-guessesSoFarText.textContent = guessedLetters;
 
 document.onkeyup = function(event) {
 
     var userGuess = event.key;
 
-    var computerGuess = letterOptions[Math.floor(Math.random() * letterOptions.length)];
+    var computerGuess = letterOptions[Math.floor(Math.random() * letterOptions.length -1)];
 
-    // first if else if - option one
     if (userGuess === computerGuess) {
         wins++;
 
     } else {
         guessesLeft--;
-        guessedLetters.push(userGuess);
+        guessedLetters.push(" " + userGuess);
     } 
     
     if (guessesLeft === 0) {
         losses++;
         reset();
     }
-}
 
+    winsText.textContent = wins;
+    lossesText.textContent = losses;
+    guessesLeftText.textContent = guessesLeft;
+    guessesSoFarText.textContent = guessedLetters;
+};
 
     // second if else if - option 2
 
