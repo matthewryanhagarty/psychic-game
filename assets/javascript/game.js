@@ -8,10 +8,10 @@ var guessedLetters = [];
 
 
    // Create variables that hold references to the places in the HTML where we want to display things.
-var winsText = document.getElementById("wins-text");
-var loses = document.getElementById("lloses-text");
-var livesLeft = document.getElementById("lives-left-text");
-var guessSoFar = document.getElementById("guesses-so-far-text");
+document.getElementById("wins-text").innerHTML = wins;
+document.getElementById("lloses-text").innerHTML = loses;
+document.getElementById("guesses-left-text").innerHTML = guessesLeft;
+document.getElementById("guesses-so-far-text").innerHTML = guessSoFar;
 
 
 document.onkeyup = function(event) {
@@ -20,21 +20,41 @@ document.onkeyup = function(event) {
 
     var computerGuess = letterOptions[Math.floor(Math.random() * letterOptions.length)];
 
-        if (userGuess = computerGuess) {
-            wins++;
-        }
-            else {
-                guessesLeft--;
-                guessedLetters.push(userGuess);
-            }
+    // first if else if - option one
+    if (userGuess = computerGuess) {
+        wins++;
+
+    } else
+        (guessesLeft--);
+        (guessedLetters.push(userGuess));
+
+    } 
+    
+    if (guessesLeft === 0);
+        function reset(){
+            guessesLeft = 9;
+            guessedLetters = [];
     }
-        if (guessesLeft === 0) {
-                function reset(){
-                    guessesLeft = 9;
-                    guessedLetters = [];
-                }
-        }
 
-// winsText.textContent = wins;
+    // second if else if - option 2
 
-console.log(computerGuess)
+    // if (userGuess = computerGuess) {
+    //     wins++;
+    // }
+    //     else ((userGuess !-- computerGuess)) {
+            
+    //         (guessesLeft--);
+    //         (guessedLetters.push(userGuess));
+
+    //     }
+    //         if ((guessesLeft === 0)) {
+    //                 function reset(){
+    //                     guessesLeft = 9;
+    //                     guessedLetters = [];
+    //                 }
+    //             }
+
+
+winsText.innerHTML = wins;
+
+// console.log(wins)
