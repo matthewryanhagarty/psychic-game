@@ -1,18 +1,25 @@
 var letterOptions = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 var wins = 0;
-var loses = 0;
+var losses = 0;
 var guessesLeft = 9;
 var guessedLetters = [];
 
+function reset(){
+    guessesLeft = 9;
+    guessedLetters = [];
+}
 
    // Create variables that hold references to the places in the HTML where we want to display things.
-var winText = document.getElementById("wins-text");
-winsText.textContent = wins;
-// document.getElementById("loses-text").innerHTML = loses;
-// document.getElementById("guesses-left-text").innerHTML = guessesLeft;
-// document.getElementById("guesses-so-far-text").innerHTML = guessSoFar;
+var winsText = document.getElementById("wins-text");
+var lossesText = document.getElementById("losses-text");
+var guessesLeftText = document.getElementById("guesses-left-text");
+var guessesSoFarText = document.getElementById("guesses-so-far-text");
 
+winsText.textContent = wins;
+lossesText.textContent = losses;
+guessesLeftText.textContent = guessesLeft;
+guessesSoFarText.textContent = guessedLetters;
 
 document.onkeyup = function(event) {
 
@@ -21,20 +28,20 @@ document.onkeyup = function(event) {
     var computerGuess = letterOptions[Math.floor(Math.random() * letterOptions.length)];
 
     // first if else if - option one
-    if (userGuess = computerGuess) {
+    if (userGuess === computerGuess) {
         wins++;
 
-    } else
-        (guessesLeft--);
-        (guessedLetters.push(userGuess));
+    } else {
+        guessesLeft--;
+        guessedLetters.push(userGuess);
     } 
     
-    if (guessesLeft === 0);
-        loses++;
-        function reset(){
-            guessesLeft = 9;
-            guessedLetters = [];
-    };
+    if (guessesLeft === 0) {
+        losses++;
+        reset();
+    }
+}
+
 
     // second if else if - option 2
 
