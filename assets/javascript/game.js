@@ -4,10 +4,16 @@ var wins = 0;
 var losses = 0;
 var guessesLeft = 9;
 var guessedLetters = [];
+var computerGuess = "";
+
+// function newComputerNumber() {
+    // computerGuess = letterOptions[Math.floor(Math.random() * letterOptions.length -1)];
+// }
 
 function reset(){
-    guessesLeft = 9;
     guessedLetters = [];
+    guessesLeft = 9;
+    // newComputerNumber();
 }
 
 var winsText = document.getElementById("wins-text");
@@ -19,11 +25,12 @@ var guessesSoFarText = document.getElementById("guesses-so-far-text");
 document.onkeyup = function(event) {
 
     var userGuess = event.key;
-
-    var computerGuess = letterOptions[Math.floor(Math.random() * letterOptions.length -1)];
+    
+    computerGuess = letterOptions[Math.floor(Math.random() * letterOptions.length -1)];
 
     if (userGuess === computerGuess) {
         wins++;
+        reset();
 
     } else {
         guessesLeft--;
@@ -39,6 +46,8 @@ document.onkeyup = function(event) {
     lossesText.textContent = losses;
     guessesLeftText.textContent = guessesLeft;
     guessesSoFarText.textContent = guessedLetters;
+
+    console.log(computerGuess)
 };
 
     // second if else if - option 2
